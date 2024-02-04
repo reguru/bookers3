@@ -7,10 +7,12 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application"
+import "../stylesheets/application";
+
 import "../stylesheets/books.scss"
 import "../stylesheets/users.scss"
 import "../stylesheets/mystyle.scss"
