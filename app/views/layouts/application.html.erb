@@ -73,7 +73,9 @@
       </nav>
     </header>
     <main>
-      <p id="notice"></p>
+      <p>
+        <%= flash[:notice] %>
+      </p>
       <%= yield %>
     </main>
     <footer>

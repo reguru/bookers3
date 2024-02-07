@@ -1,11 +1,22 @@
 <div class="container">
+  <div id="error_explanation">
+    <% if @book.errors.any? %>
+      <h4><%= @book.errors.count %>error prohibited this obj from being saved:</h4>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
   <div class="row">
     <%= render "books/sidebar", {user: @user, book: @book} %>
-    <div class="col-1"></div>
-    <div class="col-7">
+
+    <div class="col-md-8 offset-md-1">
       <div class="row">
         <h2>Books</h2>
-        <table class="table">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th></th>
@@ -17,7 +28,11 @@
           <% @books.each do |book| %>
           <tbody>
             <tr>
-              <td><%= image_tag book.get_image(80,80) %></td>
+              <td>
+                <%= link_to user_path(book.user) do %>
+                  <%= image_tag book.user.get_profile_image(80,80) %>
+                <% end %>
+              </td>
               <td><%= link_to book.title, book_path(book) %></td>
               <td><%= book.body %></td>
             </tr>
